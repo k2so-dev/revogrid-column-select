@@ -1,15 +1,4 @@
 import { SelectConfig } from "./type";
-const style = {
-    width: '0',
-    height: '0',
-    borderStyle: 'solid',
-    borderWidth: '5px 4px 0 4px',
-    borderColor: 'transparent',
-    borderTopColor: 'initial',
-    display: 'inline-block',
-    verticalAlign: 'middle',
-    opacity: '.4'
-  };
 export const SelectColumnRenderer = (h: any, {model, prop, column}: any): any[] => {
     let col = column as SelectConfig;
     let val = model[prop];
@@ -27,7 +16,6 @@ export const SelectColumnRenderer = (h: any, {model, prop, column}: any): any[] 
                 });
                 e.target.dispatchEvent(ev);
             }}>
-            <span {...{ style }}/>
         </span>
     ];
 };

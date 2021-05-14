@@ -18,13 +18,9 @@ export class SelectColumnEditor implements Edition.EditorBase {
     componentDidRender() {}
     render(h: any) {
         let val = '';
-        let filter = '';
         if (this.editCell) {
             const model = this.editCell.model || {};
             val = model[this.editCell?.prop] || '';
-        }
-        if (val !== this.editCell?.val) {
-            filter = this.editCell?.val;
         }
         return <revo-dropdown 
             source={this.column?.source}
@@ -34,7 +30,6 @@ export class SelectColumnEditor implements Edition.EditorBase {
             autoFocus={true}
             max-height='300'
             value={val}
-            currentFilter={filter}
             onChanged={({ detail }: CustomEvent<ChangeValue>) => {
                 // object field mapping has to be preserved
                 const preventFocus = detail.originalEvent.code=='Tab'? true : false;
